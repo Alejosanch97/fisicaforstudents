@@ -203,13 +203,15 @@ export function SimFrame({ canvasRef, controls, readouts, formula, playing, onPl
       <div className="sim-stage">
         <canvas ref={canvasRef} {...(onPointer || {})} />
         {children}
-        <div className="sim-stage-tools">
-          {onPlay && <button className="sim-round" onClick={onPlay} title={playing ? "Pause" : "Play"}>{playing ? <Pause size={18} /> : <Play size={18} />}</button>}
-          {onReset && <button className="sim-round" onClick={onReset} title="Reset"><RotateCcw size={17} /></button>}
-        </div>
-        {hint && <div className="sim-hint">{hint}</div>}
       </div>
       <aside className="sim-panel">
+        {(onPlay || onReset) && (
+          <div className="sim-tools">
+            {onPlay && <button className="sim-tool play" onClick={onPlay}>{playing ? <><Pause size={16} /> Pause</> : <><Play size={16} /> Play</>}</button>}
+            {onReset && <button className="sim-tool" onClick={onReset}><RotateCcw size={15} /> Reset</button>}
+          </div>
+        )}
+        {hint && <p className="sim-note sim-hint-note">💡 {hint}</p>}
         {readouts && <Readout items={readouts} />}
         <div className="sim-controls">{controls}</div>
         {formula && <div className="sim-formula"><Tex tex={formula} block /></div>}

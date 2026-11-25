@@ -144,7 +144,7 @@ code { font-family: var(--f-m); background: rgba(23, 24, 59, .07); padding: 1px 
 .flow-n { position: absolute; top: -14px; right: -10px; width: 34px; height: 34px; border-radius: 50%; background: var(--tang); color: #fff; font-family: var(--f-d); font-weight: 800; display: grid; place-items: center; border: 2px solid var(--ink); }
 .flow-step h4 { font-size: 1.25rem; margin: 10px 0 6px; }
 .flow-step p { margin: 0; font-size: .9rem; color: var(--ink-soft); }
-.try-box { border: 3px solid var(--ink); border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--sh-lg); height: 560px; background: var(--board); }
+.try-box { border: 3px solid var(--ink); border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--sh-lg); height: 730px; background: var(--board); }
 .land-foot { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; background: var(--ink); color: var(--chalk); padding: 34px clamp(16px, 4vw, 56px); margin-top: 40px; }
 .land-foot p { opacity: .75; margin: 0; }
 

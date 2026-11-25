@@ -2,7 +2,7 @@
    MOMENTUM · conexión con Google Apps Script
    👉 Pega aquí la URL de tu Web App (termina en /exec):
    ===================================================================== */
-export const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxP5wS2md2G7CiSMXgaF4RypXXjZIGq9Vheemvu2Lo7DGS9uNlEcKOq9n-eVFyvhD-k3w/exec";
+export const SCRIPT_URL = "";
 
 const URL_ = (import.meta.env.VITE_SCRIPT_URL || SCRIPT_URL || "").trim();
 export const isDemo = !URL_;

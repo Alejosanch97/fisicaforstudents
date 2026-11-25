@@ -1,15 +1,15 @@
 /* =====================================================================
    MOMENTUM · SIMULATION FRAME (chalk board + control panel)
    ===================================================================== */
-.sim-frame { display: grid; grid-template-columns: 1fr 300px; height: 100%; min-height: 440px; background: var(--board); color: var(--chalk); font-family: var(--f-b); }
-.sim-frame.compact { grid-template-columns: 1fr 230px; min-height: 0; }
+.sim-frame { display: grid; grid-template-columns: minmax(0, 1fr) 300px; grid-template-rows: minmax(0, 1fr); height: 100%; min-height: 440px; background: var(--board); color: var(--chalk); font-family: var(--f-b); }
+.sim-frame.compact { grid-template-columns: minmax(0, 1fr) 230px; min-height: 0; }
 .sim-stage { position: relative; min-width: 0; min-height: 300px; overflow: hidden; touch-action: none; }
 .sim-stage canvas { position: absolute; inset: 0; display: block; }
 .sim-stage-tools { position: absolute; top: 12px; right: 12px; display: flex; gap: 8px; z-index: 2; }
 .sim-round { width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--chalk); background: rgba(20, 22, 58, .7); color: var(--chalk); display: grid; place-items: center; backdrop-filter: blur(4px); }
 .sim-round:hover { background: var(--tang); border-color: var(--tang); }
 .sim-hint { position: absolute; left: 12px; bottom: 10px; font-size: .78rem; opacity: .55; font-weight: 600; pointer-events: none; }
-.sim-panel { background: #0f1130; border-left: 1px solid rgba(244, 239, 228, .1); padding: 14px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; }
+.sim-panel { min-height: 0; background: #0f1130; border-left: 1px solid rgba(244, 239, 228, .1); padding: 14px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; }
 .compact .sim-panel { padding: 10px; gap: 10px; font-size: .9em; }
 .sim-readouts { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .sim-ro { background: rgba(244, 239, 228, .05); border: 1px solid rgba(244, 239, 228, .1); border-left: 3px solid var(--c); border-radius: 10px; padding: 7px 9px; min-width: 0; }
@@ -86,3 +86,12 @@
   .try-box, .lab-sim, .sim-page-stage { height: auto; min-height: 0; }
   .try-box .sim-stage, .lab-sim .sim-stage, .sim-page-stage .sim-stage { height: 360px; }
 }
+
+/* play / reset live in the panel so they never cover the board */
+.sim-tools { display: flex; gap: 8px; }
+.sim-tool { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 40px; border-radius: 999px; border: 2px solid rgba(244, 239, 228, .35); background: transparent; color: var(--chalk); font-weight: 800; font-size: .86rem; }
+.sim-tool:hover { border-color: var(--chalk); background: rgba(244, 239, 228, .08); }
+.sim-tool.play { background: var(--tang); border-color: var(--tang); color: #fff; }
+.sim-tool.play:hover { filter: brightness(1.1); }
+.sim-hint-note { background: rgba(255, 193, 46, .1); border-radius: 10px; padding: 7px 9px; color: var(--sun); opacity: 1; }
+.compact .sim-tool { height: 34px; font-size: .78rem; }
