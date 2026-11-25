@@ -1,30 +1,44 @@
-// Import necessary components and functions from react-router-dom.
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import { Landing } from "./pages/Landing";
+import { Login } from "./pages/Login";
+import { AppShell } from "./pages/AppShell";
+import { Dashboard } from "./pages/Dashboard";
+import { GradePage } from "./pages/GradePage";
+import { UnitPage } from "./pages/UnitPage";
+import { SimLibrary, SimPage } from "./pages/SimPages";
+import { GamesHub } from "./pages/GamesHub";
+import { Millionaire } from "./games/Millionaire";
+import { Jeopardy } from "./games/Jeopardy";
+import { Wheel } from "./games/Wheel";
+import { BankPage } from "./pages/BankPage";
+import { MyQuestions } from "./pages/MyQuestions";
+import { FormulaWall } from "./pages/FormulaWall";
+import { Presentation } from "./pages/Presentation";
+import { RequireAuth } from "./auth";
 
-import {
-    createBrowserRouter,
-    createRoutesFromElements,
-    Route,
-} from "react-router-dom";
-import { Layout } from "./pages/Layout";
-import { Home } from "./pages/Home";
-import { Single } from "./pages/Single";
-import { Demo } from "./pages/Demo";
+const guard = (el) => <RequireAuth>{el}</RequireAuth>;
 
-export const router = createBrowserRouter(
-    createRoutesFromElements(
-    // CreateRoutesFromElements function allows you to build route elements declaratively.
-    // Create your routes here, if you want to keep the Navbar and Footer in all views, add your new routes inside the containing Route.
-    // Root, on the contrary, create a sister Route, if you have doubts, try it!
-    // Note: keep in mind that errorElement will be the default page when you don't get a route, customize that page to make your project more attractive.
-    // Note: The child paths of the Layout element replace the Outlet component with the elements contained in the "element" attribute of these child paths.
-
-      // Root Route: All navigation will start from here.
-      <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
-
-        {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
-        <Route path= "/" element={<Home />} />
-        <Route path="/single/:theId" element={ <Single />} />  {/* Dynamic route for single items */}
-        <Route path="/demo" element={<Demo />} />
-      </Route>
-    )
-);
+export const router = createBrowserRouter([
+  { path: "/", element: <Landing /> },
+  { path: "/login", element: <Login /> },
+  { path: "/present/:grade/:period", element: guard(<Presentation />) },
+  {
+    path: "/app",
+    element: guard(<AppShell />),
+    children: [
+      { index: true, element: <Dashboard /> },
+      { path: "grade/:grade", element: <GradePage /> },
+      { path: "grade/:grade/p/:period", element: <UnitPage /> },
+      { path: "sims", element: <SimLibrary /> },
+      { path: "sims/:simId", element: <SimPage /> },
+      { path: "games", element: <GamesHub /> },
+      { path: "games/millionaire", element: <Millionaire /> },
+      { path: "games/board", element: <Jeopardy /> },
+      { path: "games/wheel", element: <Wheel /> },
+      { path: "bank", element: <BankPage /> },
+      { path: "my-questions", element: <MyQuestions /> },
+      { path: "formulas", element: <FormulaWall /> },
+    ],
+  },
+  { path: "*", element: <Navigate to="/" replace /> },
+]);
