@@ -17,3 +17,9 @@ Sin URL de Apps Script la app funciona en **modo demo** (`profe@momentum.app` / 
 Para conectar Google Sheets pega la URL de tu Web App en `src/api.js` → `SCRIPT_URL`.
 
 Guía completa paso a paso: **MOMENTUM_GUIA.md**
+
+## 🌐 Bilingual (English / Español)
+The 🇺🇸 EN / 🇨🇴 ES toggle sits in the top bar, the side menu, the landing page, the login page, presentations and Millionaire. The choice is saved in the browser (`mm_lang`).
+- Interface texts: `src/i18n/es.json` (English text → Spanish text).
+- Spanish curriculum content: `src/data/curriculumES6_8.js` and `src/data/curriculumES9_11.js`.
+- To translate a new text: wrap it in `T("English text")` and add it to `es.json`.

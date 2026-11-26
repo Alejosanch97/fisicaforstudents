@@ -684,3 +684,17 @@ code { font-family: var(--f-m); background: rgba(23, 24, 59, .07); padding: 1px 
   .q-list { display: block; }
   .q-item { break-inside: avoid; border: 1px solid #999; margin-bottom: 8px; box-shadow: none; }
 }
+
+/* ---------- language toggle (EN / ES) ---------- */
+.lang-toggle { display: inline-flex; border: 2px solid var(--ink); border-radius: 999px; background: var(--card); padding: 3px; gap: 2px; box-shadow: 2px 2px 0 var(--ink); flex-shrink: 0; }
+.lang-toggle button { border: none; background: none; border-radius: 999px; padding: 5px 10px; font-weight: 800; font-size: .78rem; color: var(--ink-soft); white-space: nowrap; }
+.lang-toggle button.on { background: var(--ink); color: var(--chalk); }
+.lang-toggle.compact button { padding: 4px 8px; font-size: .72rem; }
+.lang-toggle.dark { background: rgba(244, 239, 228, .08); border-color: rgba(244, 239, 228, .3); box-shadow: none; }
+.lang-toggle.dark button { color: rgba(244, 239, 228, .7); }
+.lang-toggle.dark button.on { background: var(--sun); color: var(--ink); }
+.side .lang-toggle { align-self: flex-start; margin: 0 4px 10px; }
+.topbar .lang-toggle { margin-left: auto; }
+.land-right { display: flex; align-items: center; gap: 12px; }
+.login-top { display: flex; justify-content: space-between; align-items: center; }
+.present-bar .lang-toggle button { height: auto !important; min-width: 0 !important; border: none !important; display: inline-block !important; }

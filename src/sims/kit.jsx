@@ -1,3 +1,4 @@
+import { T } from "../i18n";
 /* =====================================================================
    MOMENTUM · SIM KIT — shared canvas engine, controls and drawing tools
    ===================================================================== */
@@ -207,8 +208,8 @@ export function SimFrame({ canvasRef, controls, readouts, formula, playing, onPl
       <aside className="sim-panel">
         {(onPlay || onReset) && (
           <div className="sim-tools">
-            {onPlay && <button className="sim-tool play" onClick={onPlay}>{playing ? <><Pause size={16} /> Pause</> : <><Play size={16} /> Play</>}</button>}
-            {onReset && <button className="sim-tool" onClick={onReset}><RotateCcw size={15} /> Reset</button>}
+            {onPlay && <button className="sim-tool play" onClick={onPlay}>{playing ? <><Pause size={16} /> {T("Pause")}</> : <><Play size={16} /> {T("Play")}</>}</button>}
+            {onReset && <button className="sim-tool" onClick={onReset}><RotateCcw size={15} /> {T("Reset")}</button>}
           </div>
         )}
         {hint && <p className="sim-note sim-hint-note">💡 {hint}</p>}
