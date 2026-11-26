@@ -6,7 +6,10 @@ import { isDemo } from "../api";
 import { Brand } from "../components/ui";
 import { Tex } from "../sims/kit";
 
+const SPOTS = [[8, 8], [55, 6], [30, 18], [72, 20], [10, 32], [48, 34], [20, 50], [65, 46], [38, 58], [80, 60]];
 const FLOAT = ["F = ma", "v = \\frac{d}{t}", "E_k = \\tfrac12 mv^2", "PV = nRT", "V = IR", "\\lambda = \\frac{h}{p}", "n_1\\sin\\theta_1 = n_2\\sin\\theta_2", "T = 2\\pi\\sqrt{L/g}", "Q = mc\\Delta T", "p = mv"];
+/* posiciones fijas repartidas en la parte de arriba del tablero (el texto queda abajo) */
+
 
 export function Login() {
   const { login, session } = useAuth();
@@ -28,7 +31,9 @@ export function Login() {
   return (
     <div className="login">
       <div className="login-board">
-        {FLOAT.map((f, i) => <span key={f} className="login-float" style={{ "--i": i }}><Tex tex={f} /></span>)}
+        <div className="login-floats">
+          {FLOAT.map((f, i) => <span key={f} className="login-float" style={{ "--i": i, left: SPOTS[i][0] + "%", top: SPOTS[i][1] + "%" }}><Tex tex={f} /></span>)}
+        </div>
         <div className="login-board-txt">
           <h2>Good physics classes<br />are <em>built</em>, not improvised.</h2>
           <p>Simulations, decks, games and questions — ready before the bell rings.</p>

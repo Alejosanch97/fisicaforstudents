@@ -154,7 +154,8 @@ code { font-family: var(--f-m); background: rgba(23, 24, 59, .07); padding: 1px 
 .login { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 100vh; }
 .login-board { position: relative; background: var(--board); color: var(--chalk); overflow: hidden; display: flex; align-items: flex-end; padding: 48px; border-right: 3px solid var(--ink); }
 .login-board::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(244, 239, 228, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(244, 239, 228, .06) 1px, transparent 1px); background-size: 32px 32px; }
-.login-float { position: absolute; left: calc(6% + (var(--i) * 37 % 80) * 1%); top: calc(6% + (var(--i) * 53 % 60) * 1%); font-size: 1.4rem; color: rgba(244, 239, 228, .55); animation: drift 9s ease-in-out infinite; animation-delay: calc(var(--i) * -0.9s); }
+.login-floats { position: absolute; inset: 0; pointer-events: none; }
+.login-float { position: absolute; font-size: 1.4rem; white-space: nowrap; color: rgba(244, 239, 228, .55); animation: drift 9s ease-in-out infinite; animation-delay: calc(var(--i) * -0.9s); }
 .login-float:nth-child(3n) { color: var(--sun); }
 .login-float:nth-child(4n) { color: var(--tang); }
 @keyframes drift { 50% { transform: translate(14px, -18px) rotate(3deg); } }
